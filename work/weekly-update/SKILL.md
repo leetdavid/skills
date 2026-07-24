@@ -7,7 +7,7 @@ description: Drafts a weekly work update by synthesizing local repos, GitHub act
 
 ## Trigger
 
-Use this when the user wants a sendable weekly update from work signals across code, GitHub, email, meeting notes, or Granola.
+Need a weekly recap of shipped work for status updates, retros, or planning.
 
 ## Defaults
 
@@ -31,6 +31,13 @@ Use this when the user wants a sendable weekly update from work signals across c
 9. Look for Granola notes through local app data, a Granola CLI, or web access if available. If unavailable, state that separately instead of inventing meeting content.
 10. Synthesize the work by outcome, not by source. Merge duplicate signals from commits, PRs, and email, then remove outcomes already reported in last week's update. Retain a follow-up only when it has a material new outcome, and describe the delta rather than repeating the original work.
 11. Produce a sendable draft first, then a short source-coverage note outside the email body.
+
+For each git project:
+1. Group meaningful changes into 2-5 concise bullets.
+2. Add a short classification paragraph covering:
+    - likely bug fixes
+    - likely tech debt work
+    - likely net-new functionality
 
 ## Useful Commands
 
@@ -79,10 +86,10 @@ David
 
 ## Guardrails
 
-- Keep claims grounded in collected sources.
+- Keep the recap short and executive-readable.
+- Base claims only on collected sources; do not invent outcomes or work.
 - Do not include confidential details, tokens, invoice IDs, private links, or personal email contents unless needed for the update.
-- Keep the sendable draft concise and executive-readable.
-- Mention unavailable sources in a source note, not inside the sendable email body.
+- If a source requires login, network access, or unavailable local files, ask the user to provide access. Do NOT continue.
 - If prior weekly updates exist, preserve the user's voice and formatting conventions.
 - Do not repeat a completed outcome from the most recent sent weekly update. Include it only if the current week produced a material change, decision, release, or resolution, and state only that change.
-- If a source requires login, network access, or unavailable local files, continue with available sources and note the gap.
+- Do not mention meetings or 'had a discussion with X' unless the meeting produced a material outcome or decision. If it did, summarize the outcome, not the discussion.
